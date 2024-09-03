@@ -5,12 +5,6 @@
     <img src="https://komarev.com/ghpvc/?username=galendii&label=Profile%20views&color=0e75b6&style=flat" alt="galendii" /> 
 </p>
 
-<p align="left"> 
-    <a href="https://github.com/ryo-ma/github-profile-trophy">
-        <img src="https://github-profile-trophy.vercel.app/?username=galendii&rank=SECRET,SSS,SS,S,AAA,AA,A,BBB,BB,B" alt="galendii trophies" />
-    </a> 
-</p>
-
 ---
 
 <h3 align="left">🔭 Daily basis</h3>
@@ -120,4 +114,3 @@
 
 </p>
 
----
