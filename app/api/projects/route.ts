@@ -67,7 +67,7 @@ export async function GET(request: NextRequest) {
   ]
 
   // Filter by featured if query param is provided
-  const { searchParams } = new URL(request.url)
+  const { searchParams } = new URL(request.url) ?? undefined
   const featured = searchParams.get("featured")
 
   if (featured === "true") {

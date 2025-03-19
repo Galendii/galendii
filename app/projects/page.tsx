@@ -1,10 +1,11 @@
-import { getProjects } from "@/lib/api"
-import { ProjectCard } from "../components/project-card"
-import { Logo } from "../components/logo"
-import { ThemeToggle } from "../components/theme-toggle"
+import { getProjects } from "@/lib/api";
+import { ProjectCard } from "../components/project-card";
+import { Logo } from "../components/logo";
+import { ThemeToggle } from "../components/theme-toggle";
+export const dynamic = "force-dynamic"; // Ensures SSR behavior
 
 export default async function ProjectsPage() {
-  const projects = await getProjects()
+  const projects = await getProjects();
 
   return (
     <main className="min-h-screen bg-background">
@@ -39,6 +40,5 @@ export default async function ProjectsPage() {
         </div>
       </section>
     </main>
-  )
+  );
 }
-

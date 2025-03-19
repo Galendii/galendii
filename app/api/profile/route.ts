@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server"
 import type { Profile } from "@/types"
-
 export async function GET() {
   // In a real app, this would fetch from a database or CMS
   const profile: Profile = {

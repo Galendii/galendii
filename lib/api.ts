@@ -1,5 +1,6 @@
 import type { Profile, SkillCategory, Project, Experience, Testimonial, Stat } from "@/types"
-const apiUrl = "http://localhost:3000"
+const apiUrl = process.env.NEXT_PUBLIC_API_URL || ''
+
 
 export async function getProfile(): Promise<Profile> {
   const res = await fetch(apiUrl+"/api/profile")
