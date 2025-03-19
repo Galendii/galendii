@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base colors */
+    --background: 250 100% 99%;
+    --foreground: 250 25% 15%;
+
+    /* Card colors */
+    --card: 250 100% 99%;
+    --card-foreground: 250 25% 15%;
+
+    /* Popover colors */
+    --popover: 250 100% 99%;
+    --popover-foreground: 250 25% 15%;
+
+    /* Primary colors - Deep Purple */
+    --primary: 260 80% 50%;
+    --primary-foreground: 250 10% 95%;
+
+    /* Secondary colors - Light Purple */
+    --secondary: 260 30% 95%;
+    --secondary-foreground: 260 50% 30%;
+
+    /* Accent colors - Teal */
+    --accent: 175 70% 41%;
+    --accent-foreground: 175 10% 95%;
+
+    /* Muted colors */
+    --muted: 250 20% 95%;
+    --muted-foreground: 250 10% 50%;
+
+    /* Destructive colors */
+    --destructive: 0 80% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border, input, and ring colors */
+    --border: 250 15% 90%;
+    --input: 250 15% 90%;
+    --ring: 260 80% 50%;
+
+    /* Border radius */
+    --radius: 0.5rem;
+
+    /* Chart colors */
+    --chart-1: 260 80% 50%;
+    --chart-2: 175 70% 41%;
+    --chart-3: 325 70% 50%;
+    --chart-4: 210 80% 50%;
+    --chart-5: 35 90% 50%;
+
+    /* Sidebar colors */
+    --sidebar: 250 100% 99%;
+    --sidebar-foreground: 250 25% 15%;
+    --sidebar-primary: 260 80% 50%;
+    --sidebar-primary-foreground: 250 10% 95%;
+    --sidebar-accent: 175 70% 41%;
+    --sidebar-accent-foreground: 175 10% 95%;
+    --sidebar-border: 250 15% 90%;
+    --sidebar-ring: 260 80% 50%;
+  }
+
+  .dark {
+    /* Base colors */
+    --background: 250 25% 10%;
+    --foreground: 250 10% 95%;
+
+    /* Card colors */
+    --card: 250 30% 15%;
+    --card-foreground: 250 10% 95%;
+
+    /* Popover colors */
+    --popover: 250 30% 15%;
+    --popover-foreground: 250 10% 95%;
+
+    /* Primary colors - Deep Purple */
+    --primary: 260 70% 60%;
+    --primary-foreground: 250 10% 95%;
+
+    /* Secondary colors - Dark Purple */
+    --secondary: 260 30% 25%;
+    --secondary-foreground: 250 10% 95%;
+
+    /* Accent colors - Teal */
+    --accent: 175 70% 41%;
+    --accent-foreground: 175 10% 95%;
+
+    /* Muted colors */
+    --muted: 250 20% 20%;
+    --muted-foreground: 250 10% 70%;
+
+    /* Destructive colors */
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border, input, and ring colors */
+    --border: 250 15% 25%;
+    --input: 250 15% 25%;
+    --ring: 260 70% 60%;
+
+    /* Chart colors */
+    --chart-1: 260 70% 60%;
+    --chart-2: 175 70% 41%;
+    --chart-3: 325 70% 60%;
+    --chart-4: 210 70% 60%;
+    --chart-5: 35 90% 60%;
+
+    /* Sidebar colors */
+    --sidebar: 250 30% 15%;
+    --sidebar-foreground: 250 10% 95%;
+    --sidebar-primary: 260 70% 60%;
+    --sidebar-primary-foreground: 250 10% 95%;
+    --sidebar-accent: 175 70% 41%;
+    --sidebar-accent-foreground: 175 10% 95%;
+    --sidebar-border: 250 15% 25%;
+    --sidebar-ring: 260 70% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .bg-grid-pattern {
+    background-image: linear-gradient(to right, rgba(124, 58, 237, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(124, 58, 237, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .animated-gradient {
+    background: linear-gradient(-45deg, hsl(260, 80%, 50%), hsl(280, 80%, 50%), hsl(240, 80%, 50%), hsl(175, 70%, 41%));
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .floating {
+    animation: floating 3s ease-in-out infinite;
+  }
+
+  @keyframes floating {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  .blob {
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    animation: morph 15s linear infinite;
+  }
+
+  @keyframes morph {
+    0%,
+    100% {
+      border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    }
+    25% {
+      border-radius: 58% 42% 30% 70% / 55% 55% 45% 45%;
+    }
+    50% {
+      border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+    }
+    75% {
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+  }
+
+  .tech-icon {
+    transition: all 0.3s ease;
+  }
+
+  .tech-icon:hover {
+    transform: translateY(-5px);
+    filter: drop-shadow(0 10px 8px rgb(0 0 0 / 0.04)) drop-shadow(0 4px 3px rgb(0 0 0 / 0.1));
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(to right, hsl(260, 80%, 50%), hsl(175, 70%, 41%)) 1;
+  }
+
+  .section-heading {
+    @apply text-3xl font-bold tracking-tight text-center md:text-4xl;
+  }
+
+  .section-subheading {
+    @apply inline-block px-3 py-1 mb-4 text-sm font-medium rounded-full bg-primary/10 text-primary;
+  }
+
+  .section-divider {
+    @apply w-20 h-1 mt-4 bg-gradient-to-r from-primary to-accent rounded-full mx-auto;
+  }
+}
+
