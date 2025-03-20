@@ -22,7 +22,7 @@ export function ContactSection({ profile }: ContactSectionProps) {
           <div className="section-divider"></div>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2">
+        <div className="grid gap-8 grid-cols-1 md:grid-cols-2">
           <div className="p-6 rounded-lg bg-card border border-border/50 shadow-lg">
             <h3 className="mb-4 text-xl font-semibold">Contact Information</h3>
             <div className="space-y-4">
@@ -52,7 +52,7 @@ export function ContactSection({ profile }: ContactSectionProps) {
                     about="_blank"
                     className="font-medium"
                   >
-                    {profile.socialLinks.linkedin}
+                    {profile.name}
                   </a>
                 </div>
               </div>

@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { ExperienceTimeline } from "../experience-timeline"
-import type { Experience } from "@/types"
+import { ExperienceTimeline } from "../experience-timeline";
+import type { Experience } from "@/types";
 
 interface ExperienceSectionProps {
-  experiences: Experience[]
+  experiences: Experience[];
 }
 
 export function ExperienceSection({ experiences }: ExperienceSectionProps) {
@@ -23,6 +23,5 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
         <ExperienceTimeline experiences={experiences} />
       </div>
     </section>
-  )
+  );
 }
-

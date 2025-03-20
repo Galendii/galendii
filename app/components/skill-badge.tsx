@@ -22,25 +22,25 @@ export function SkillBadge({ name, level, icon }: SkillBadgeProps) {
   };
 
   return (
-    <div ref={ref} className="relative">
+    <div ref={ref} className="relative w-1/4 md:w-auto">
       <Badge
         variant="outline"
-        className="px-3 pt-3 text-sm font-medium border-2 cursor-default hover:bg-primary/5 transition-colors flex-col flex border-b-transparent"
+        className="px-3 pt-3 text-sm font-medium border-2 cursor-default hover:bg-primary/5 transition-colors flex-col flex border-b-transparent w-full"
       >
-        <div className="flex items-center">
+        <div className="flex items-center ">
           {icon && (
-            <div className="mr-1.5">
+            <div>
               <Image
                 src={icon || "/placeholder.svg"}
                 alt={name}
                 width={20}
                 height={20}
-                className="w-5 h-5"
+                className="w-7 h-7 md:w-5 md:h-5"
               />
               {/* {icon} */}
             </div>
           )}
-          {name}
+          <span className="ml-1.5 hidden md:block">{name}</span>
         </div>
 
         <div className=" w-full mt-3 h-[4px] bg-muted overflow-hidden ">

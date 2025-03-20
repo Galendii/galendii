@@ -68,7 +68,7 @@ export function SkillsSection({ skillCategories }: SkillsSectionProps) {
               <h3 className="text-xl font-semibold text-center">
                 {category.name}
               </h3>
-              <div className="flex flex-wrap justify-center gap-4">
+              <div className="flex flex-wrap justify-center gap-4 w-full">
                 {category.skills.map((skill, skillIndex) => (
                   <SkillBadge
                     key={skillIndex}
