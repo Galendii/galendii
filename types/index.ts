@@ -59,3 +59,9 @@ export interface Stat {
   value: string;
   label: string;
 }
+export interface EmailFormData {
+  email: string;
+  subject: string;
+  name: string;
+  message: string;
+}

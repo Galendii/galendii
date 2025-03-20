@@ -1,43 +1,63 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Send, CheckCircle } from "lucide-react"
+import { useCallback, useState } from "react";
+import { motion } from "framer-motion";
+import { Send, CheckCircle, XCircle } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
-import { useToast } from "@/hooks/use-toast"
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import { sendEmail } from "@/lib/api";
 
 export function ContactForm() {
-  const { toast } = useToast()
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState(false);
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+  const handleSubmit = useCallback(
+    async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+      try {
+        // Send email
+        await sendEmail({ email, name, subject, message });
 
-    toast({
-      title: "Message sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
-    })
+        // Show success toast
+        toast({
+          title: "Message sent!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
 
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+        setIsSubmitted(true);
+      } catch (error) {
+        toast({
+          title: "Error",
+          description: "Failed to send message. Please try again.",
+          variant: "destructive",
+        });
+        setError(true);
+      } finally {
+        setIsSubmitting(false);
 
-    // Reset form after showing success message
-    setTimeout(() => {
-      setIsSubmitted(false)
-      e.currentTarget.reset()
-    }, 3000)
-  }
+        // Reset form after showing success message
+        // setTimeout(() => {
+        //   setIsSubmitted(false);
+        //   e.currentTarget.reset();
+        // }, 3000);
+      }
+    },
+    [email, name, subject, message, toast]
+  );
 
   return (
     <motion.div
@@ -55,10 +75,29 @@ export function ContactForm() {
             transition={{ type: "spring", stiffness: 200, damping: 10 }}
             className="mb-4 rounded-full bg-green-100 p-3 dark:bg-green-900"
           >
-            <CheckCircle className="h-10 w-10 text-green-600 dark:text-green-400" />
+            {error ? (
+              <XCircle className="h-10 w-10 text-red-600 dark:text-red-400" />
+            ) : (
+              <CheckCircle className="h-10 w-10 text-green-600 dark:text-green-400" />
+            )}
           </motion.div>
-          <h3 className="text-xl font-semibold mb-2">Message Sent!</h3>
-          <p className="text-muted-foreground">Thank you for reaching out. I'll get back to you shortly.</p>
+          {error ? (
+            <>
+              <h3 className="text-xl font-semibold mb-2">
+                It seems our mailing system is out
+              </h3>
+              <p className="text-muted-foreground">
+                Please try again later or contact me through my social medias.
+              </p>
+            </>
+          ) : (
+            <>
+              <h3 className="text-xl font-semibold mb-2">Message Sent!</h3>
+              <p className="text-muted-foreground">
+                Thank you for reaching out. I'll get back to you shortly.
+              </p>
+            </>
+          )}
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
@@ -72,6 +111,8 @@ export function ContactForm() {
                 placeholder="Your name"
                 required
                 className="border-border/50 focus:border-primary focus:ring-1 focus:ring-primary"
+                onChange={(e) => setName(e.target.value)}
+                value={name}
               />
             </div>
             <div className="space-y-2">
@@ -84,6 +125,8 @@ export function ContactForm() {
                 placeholder="Your email"
                 required
                 className="border-border/50 focus:border-primary focus:ring-1 focus:ring-primary"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
               />
             </div>
           </div>
@@ -96,6 +139,8 @@ export function ContactForm() {
               placeholder="Project inquiry"
               required
               className="border-border/50 focus:border-primary focus:ring-1 focus:ring-primary"
+              onChange={(e) => setSubject(e.target.value)}
+              value={subject}
             />
           </div>
           <div className="space-y-2">
@@ -108,6 +153,8 @@ export function ContactForm() {
               rows={6}
               required
               className="border-border/50 focus:border-primary focus:ring-1 focus:ring-primary resize-none"
+              onChange={(e) => setMessage(e.target.value)}
+              value={message}
             />
           </div>
           <Button
@@ -120,7 +167,11 @@ export function ContactForm() {
                 Sending...
                 <motion.div
                   animate={{ rotate: 360 }}
-                  transition={{ duration: 1, repeat: Number.POSITIVE_INFINITY, ease: "linear" }}
+                  transition={{
+                    duration: 1,
+                    repeat: Number.POSITIVE_INFINITY,
+                    ease: "linear",
+                  }}
                   className="ml-2"
                 >
                   <Send className="w-4 h-4" />
@@ -136,6 +187,5 @@ export function ContactForm() {
         </form>
       )}
     </motion.div>
-  )
+  );
 }
-
