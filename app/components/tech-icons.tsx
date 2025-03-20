@@ -1,18 +1,42 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import Image from "next/image"
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 const technologies = [
-  { name: "React", icon: "/placeholder.svg?height=40&width=40" },
-  { name: "Next.js", icon: "/placeholder.svg?height=40&width=40" },
-  { name: "TypeScript", icon: "/placeholder.svg?height=40&width=40" },
-  { name: "Node.js", icon: "/placeholder.svg?height=40&width=40" },
-  { name: "GraphQL", icon: "/placeholder.svg?height=40&width=40" },
-  { name: "PostgreSQL", icon: "/placeholder.svg?height=40&width=40" },
-  { name: "MongoDB", icon: "/placeholder.svg?height=40&width=40" },
-  { name: "AWS", icon: "/placeholder.svg?height=40&width=40" },
-]
+  {
+    name: "React",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+  },
+  {
+    name: "Next.js",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
+  },
+  {
+    name: "TypeScript",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg",
+  },
+  {
+    name: "Node.js",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
+  },
+  {
+    name: "GraphQL",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg",
+  },
+  {
+    name: "Django",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg",
+  },
+  {
+    name: "MongoDB",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg",
+  },
+  {
+    name: "AWS",
+    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
+  },
+];
 
 export function TechIcons() {
   return (
@@ -32,13 +56,17 @@ export function TechIcons() {
         >
           <div className="flex flex-col items-center">
             <div className="relative w-10 h-10 md:w-12 md:h-12 mb-2">
-              <Image src={tech.icon || "/placeholder.svg"} alt={tech.name} fill className="object-contain" />
+              <Image
+                src={tech.icon || "/placeholder.svg"}
+                alt={tech.name}
+                fill
+                className="object-contain"
+              />
             </div>
             <span className="text-xs text-muted-foreground">{tech.name}</span>
           </div>
         </motion.div>
       ))}
     </motion.div>
-  )
+  );
 }
-

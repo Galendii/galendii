@@ -21,15 +21,14 @@ export const dynamic = "force-dynamic"; // Ensures SSR behavior
 
 export default async function Home() {
   // Fetch all data in parallel
-  const [profile, skillCategories, projects, experiences, testimonials, stats] =
-    await Promise.all([
-      getProfile(),
-      getSkills(),
-      getProjects(true), // Only fetch featured projects
-      getExperiences(),
-      getTestimonials(),
-      getStats(),
-    ]);
+  const [profile, skillCategories, experiences, stats] = await Promise.all([
+    getProfile(),
+    getSkills(),
+    // getProjects(true), // Only fetch featured projects
+    getExperiences(),
+    // getTestimonials(),
+    getStats(),
+  ]);
 
   return (
     <main className="min-h-screen bg-background">
@@ -40,8 +39,8 @@ export default async function Home() {
       <HeroSection profile={profile} />
       <StatsSection stats={stats} />
       <SkillsSection skillCategories={skillCategories} />
-      <ProjectsSection projects={projects} />
-      <TestimonialsSection testimonials={testimonials} />
+      {/* <ProjectsSection projects={projects} /> */}
+      {/* <TestimonialsSection testimonials={testimonials} /> */}
       <ExperienceSection experiences={experiences} />
       <ContactSection profile={profile} />
       <FooterSection profile={profile} />

@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server"
-import type { Experience } from "@/types"
+import { NextResponse } from "next/server";
+import type { Experience } from "@/types";
 
 export async function GET() {
   // In a real app, this would fetch from a database or CMS
@@ -7,53 +7,71 @@ export async function GET() {
     {
       id: "1",
       role: "Senior Fullstack Developer",
-      company: "Tech Innovations Inc.",
+      company: "Blinctek / OneBlinc",
       period: "2021 - Present",
-      location: "San Francisco, CA",
+      location: "Remote",
       description:
-        "Led the development of a high-traffic e-commerce platform serving over 1M monthly users. Implemented microservices architecture and reduced page load times by 60%.",
+        "Led full-stack development of mission-critical products using Django, Next/React, and Flutter while improving architectural replicability through AWS CDK.",
       achievements: [
-        "Architected and implemented a scalable microservices infrastructure",
-        "Reduced infrastructure costs by 40% through cloud optimization",
-        "Mentored junior developers and established coding standards",
+        "Mentored junior developers in company best practices and fostered collaborative learning",
+        "Developed 4 MVPs with 75% success rate (3 became principal company products)",
+        "Created white-label management dashboards to accelerate product time-to-market",
+        "Architected maintainable MVP infrastructure using AWS CDK",
       ],
       icon: "briefcase",
       color: "from-primary to-purple-600",
     },
     {
       id: "2",
-      role: "Fullstack Developer",
-      company: "Digital Solutions Ltd.",
-      period: "2018 - 2021",
-      location: "New York, NY",
+      role: "Technology Manager",
+      company: "Mind Consulting",
+      period: "2019 - 2021",
+      location: "Sorocaba",
       description:
-        "Developed and maintained multiple client projects using React, Node.js, and GraphQL. Implemented CI/CD pipelines and automated testing strategies.",
+        "Led technical operations and infrastructure development for multiple squads while establishing CI/CD pipelines and cloud solutions.",
       achievements: [
-        "Implemented GraphQL APIs for 15+ client projects",
-        "Established automated testing protocols with 90% code coverage",
-        "Reduced deployment time by 70% through CI/CD optimization",
+        "Directed 5+ development squads (20+ engineers) across simultaneous projects",
+        "Implemented AWS infrastructure (ECS, S3, Route53) and CI/CD pipelines",
+        "Developed company-wide UI system using React with TypeScript and Storybook",
+        "Established technical prerequisites for new project initiatives",
       ],
-      icon: "code",
-      color: "from-accent to-teal-600",
+      icon: "users",
+      color: "from-blue-500 to-cyan-400",
     },
     {
       id: "3",
-      role: "Frontend Developer",
-      company: "WebCraft Agency",
-      period: "2016 - 2018",
-      location: "Boston, MA",
+      role: "Fullstack Web and Mobile Developer",
+      company: "Mind Consulting",
+      period: "2018 - 2019",
+      location: "Sorocaba",
       description:
-        "Built responsive web applications with React and Redux. Collaborated with designers to implement pixel-perfect UIs and optimize for performance.",
+        "Full-cycle development of educational and financial applications across mobile and web platforms.",
       achievements: [
-        "Developed component library used across 20+ client projects",
-        "Improved page load performance by 45% through code splitting and lazy loading",
-        "Collaborated with UX team to improve accessibility compliance",
+        "Built 'Nerd App' educational platform using React Native",
+        "Developed 'Clube de Investimentos' financial education app (mobile + web)",
+        "Implemented solutions using React, React Native, Node.js, and Laravel",
+        "Managed both SQL and NoSQL database systems",
       ],
-      icon: "layout",
-      color: "from-purple-600 to-pink-600",
+      icon: "code",
+      color: "from-green-500 to-emerald-400",
     },
-  ]
+    {
+      id: "4",
+      role: "Junior Fullstack Web Developer",
+      company: "Mind Consulting",
+      period: "2017 - 2018",
+      location: "Sorocaba",
+      description:
+        "Contributed to legacy system maintenance while developing internal tools and expanding technical skillset.",
+      achievements: [
+        "Maintained logistics platform built with Laravel framework",
+        "Created internal HR/payroll management web application",
+        "Pioneered TypeScript adoption within company projects",
+      ],
+      icon: "rocket",
+      color: "from-orange-400 to-amber-600",
+    },
+  ];
 
-  return NextResponse.json(experiences)
+  return NextResponse.json(experiences);
 }
-

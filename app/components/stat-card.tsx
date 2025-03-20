@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useRef } from "react"
+import { motion } from "framer-motion";
+import { useRef } from "react";
 
 interface StatCardProps {
-  value: string
-  label: string
+  value: string;
+  label: string;
 }
 
 export function StatCard({ value, label }: StatCardProps) {
-  const ref = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLDivElement>(null);
 
   return (
     <motion.div
@@ -18,7 +18,7 @@ export function StatCard({ value, label }: StatCardProps) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.5 }}
-      className="p-6 rounded-lg bg-card border border-border/50 shadow-lg text-center hover:shadow-xl transition-shadow"
+      className="p-6 rounded-lg bg-card border border-border/50 shadow-lg text-center hover:shadow-xl transition-shadow px-8"
     >
       <motion.div
         initial={{ scale: 0.5, opacity: 0 }}
@@ -31,6 +31,5 @@ export function StatCard({ value, label }: StatCardProps) {
       </motion.div>
       <p className="text-sm text-muted-foreground">{label}</p>
     </motion.div>
-  )
+  );
 }
-

@@ -1,17 +1,17 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
+import { motion } from "framer-motion";
+import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
-import { Button } from "@/components/ui/button"
-import { ParticlesBackground } from "../particles-background"
-import { TechIcons } from "../tech-icons"
-import type { Profile } from "@/types"
+import { Button } from "@/components/ui/button";
+import { ParticlesBackground } from "../particles-background";
+import { TechIcons } from "../tech-icons";
+import type { Profile } from "@/types";
 
 interface HeroSectionProps {
-  profile: Profile
+  profile: Profile;
 }
 
 export function HeroSection({ profile }: HeroSectionProps) {
@@ -27,7 +27,7 @@ export function HeroSection({ profile }: HeroSectionProps) {
           <div className="absolute -inset-1 rounded-full blur-md bg-gradient-to-r from-primary to-accent opacity-75"></div>
           <div className="relative overflow-hidden rounded-full border-4 border-background shadow-xl">
             <Image
-              src={profile.avatar || "/placeholder.svg?height=150&width=150"}
+              src={profile.avatar || "/avatar.png"}
               alt={profile.name}
               width={150}
               height={150}
@@ -67,8 +67,12 @@ export function HeroSection({ profile }: HeroSectionProps) {
               <div className="absolute inset-0 w-0 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full"></div>
             </Link>
           </Button>
-          <Button variant="outline" asChild className="border-primary/20 hover:border-primary/50">
-            <Link href="#projects">View projects</Link>
+          <Button
+            variant="outline"
+            asChild
+            className="border-primary/20 hover:border-primary/50"
+          >
+            <Link href="#experience">My journey</Link>
           </Button>
         </motion.div>
 
@@ -78,18 +82,44 @@ export function HeroSection({ profile }: HeroSectionProps) {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex items-center gap-4 mt-8"
         >
-          <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-primary/10 hover:text-primary">
-            <Link href={profile.socialLinks.github} target="_blank" aria-label="GitHub">
+          <Button
+            variant="ghost"
+            size="icon"
+            asChild
+            className="rounded-full hover:bg-primary/10 hover:text-primary"
+          >
+            <Link
+              href={profile.socialLinks.github}
+              target="_blank"
+              aria-label="GitHub"
+            >
               <Github className="w-5 h-5" />
             </Link>
           </Button>
-          <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-primary/10 hover:text-primary">
-            <Link href={profile.socialLinks.linkedin} target="_blank" aria-label="LinkedIn">
+          <Button
+            variant="ghost"
+            size="icon"
+            asChild
+            className="rounded-full hover:bg-primary/10 hover:text-primary"
+          >
+            <Link
+              href={profile.socialLinks.linkedin}
+              target="_blank"
+              aria-label="LinkedIn"
+            >
               <Linkedin className="w-5 h-5" />
             </Link>
           </Button>
-          <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-primary/10 hover:text-primary">
-            <Link href={`mailto:${profile.socialLinks.email}`} aria-label="Email">
+          <Button
+            variant="ghost"
+            size="icon"
+            asChild
+            className="rounded-full hover:bg-primary/10 hover:text-primary"
+          >
+            <Link
+              href={`mailto:${profile.socialLinks.email}`}
+              aria-label="Email"
+            >
               <Mail className="w-5 h-5" />
             </Link>
           </Button>
@@ -102,6 +132,5 @@ export function HeroSection({ profile }: HeroSectionProps) {
 
       <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-background to-transparent"></div>
     </section>
-  )
+  );
 }
-
