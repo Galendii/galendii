@@ -81,7 +81,7 @@ export const sendEmail = async (email: EmailFormData) => {
     });
     const data = await response.json();
     if (!response.ok) {
-      throw new Error(`Failed to send email data ${data}`);
+      throw new Error(`Failed to send email data ${JSON.stringify(data)}`);
     }
 
     return response;
