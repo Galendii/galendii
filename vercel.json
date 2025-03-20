@@ -3,7 +3,7 @@
   "framework": "nextjs",
   "routes": [{ "handle": "filesystem" }, { "src": "/(.*)", "dest": "/" }],
   "functions": {
-    "pages/api/email/send.ts": {
+    "pages/api/send-email/route.ts": {
       "memory": 1024,
       "maxDuration": 10
     }
