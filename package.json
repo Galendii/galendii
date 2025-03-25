@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next-sitemap",
     "start": "next start",
     "lint": "next lint"
   },
@@ -51,6 +51,7 @@
     "input-otp": "1.4.1",
     "lucide-react": "^0.454.0",
     "next": "15.1.0",
+    "next-sitemap": "^4.2.3",
     "next-themes": "latest",
     "node-mailjet": "^6.0.8",
     "protobufjs": "^7.4.0",
