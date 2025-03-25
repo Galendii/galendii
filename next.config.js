@@ -19,7 +19,8 @@ module.exports = {
 
     return config;
   },
-
+  siteUrl: "https://galendii.dev",
+  generateRobotsTxt: true,
   experimental: {
     esmExternals: "loose",
   },
