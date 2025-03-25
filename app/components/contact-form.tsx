@@ -19,10 +19,10 @@ export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState(false);
-  const [email, setEmail] = useState("breno.galendi@oneblinc.com");
-  const [name, setName] = useState("Breno");
-  const [subject, setSubject] = useState("Teste");
-  const [message, setMessage] = useState("teste");
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleSubmit = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
