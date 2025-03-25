@@ -108,9 +108,7 @@ export default function RootLayout({
                 endDate: "Present",
                 jobTitle: "Senior Fullstack Developer",
                 description:
-                  "Led full-stack development of mission-critical products using Django, Next/React, and Flutter while improving architectural replicability through AWS CDK. Key achievements include mentoring junior developers, developing MVPs with a high success rate, creating white-label management dashboards, and architecting maintainable MVP infrastructure."[
-                    (1, 2)
-                  ],
+                  "Led full-stack development of mission-critical products using Django, Next/React, and Flutter while improving architectural replicability through AWS CDK. Key achievements include mentoring junior developers, developing MVPs with a high success rate, creating white-label management dashboards, and architecting maintainable MVP infrastructure."[1],
               },
               {
                 "@type": "EmploymentAgency",
@@ -119,9 +117,7 @@ export default function RootLayout({
                 endDate: "2021",
                 jobTitle: "Technology Manager",
                 description:
-                  "Led technical operations and infrastructure development for multiple squads while establishing CI/CD pipelines and cloud solutions. Key achievements include directing development squads, implementing AWS infrastructure and CI/CD pipelines, developing a company-wide UI system using React with TypeScript and Storybook, and establishing technical prerequisites for new project initiatives."[
-                    (2, 3)
-                  ],
+                  "Led technical operations and infrastructure development for multiple squads while establishing CI/CD pipelines and cloud solutions. Key achievements include directing development squads, implementing AWS infrastructure and CI/CD pipelines, developing a company-wide UI system using React with TypeScript and Storybook, and establishing technical prerequisites for new project initiatives."[2],
               },
               {
                 "@type": "EmploymentAgency",
