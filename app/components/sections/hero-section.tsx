@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { ParticlesBackground } from "../particles-background";
 import { TechIcons } from "../tech-icons";
 import type { Profile } from "@/types";
+import { getProfile } from "@/lib/api";
 
 interface HeroSectionProps {
   profile: Profile;
@@ -27,7 +28,7 @@ export function HeroSection({ profile }: HeroSectionProps) {
           <div className="absolute -inset-1 rounded-full blur-md bg-gradient-to-r from-primary to-accent opacity-75"></div>
           <div className="relative overflow-hidden rounded-full border-4 border-background shadow-xl">
             <Image
-              src={profile.avatar || "/avatar.png"}
+              src={profile?.avatar || "/avatar.png"}
               alt={profile.name}
               width={150}
               height={150}

@@ -2,48 +2,6 @@
 
 import { SkillBadge } from "../skill-badge";
 import type { SkillCategory } from "@/types";
-import {
-  Component, // react
-  LayoutTemplate, // nextjs
-  Type, // typescript
-  Paintbrush, // tailwind
-  Terminal, // nestjs/express
-  Code2, // django
-  Database, // mongodb/postgresql
-  Cloud, // aws
-  Package, // docker
-  GitBranch, // ci/cd
-} from "lucide-react";
-
-// Icon mapping configuration
-const iconMap = {
-  react: <Component />,
-  nextjs: <LayoutTemplate />,
-  typescript: <Type />,
-  tailwind: <Paintbrush />,
-  nestjs: <Terminal />,
-  django: <Code2 />,
-  express: <Terminal />,
-  mongodb: <Database />,
-  postgresql: <Database />,
-  aws: <Cloud />,
-  docker: <Package />,
-  git: <GitBranch />,
-};
-
-// Color mapping for brand colors
-const brandColors = {
-  React: "#61DAFB",
-  Nextjs: "#000000",
-  TypeScript: "#3178C6",
-  Tailwind: "#06B6D4",
-  Django: "#092E20",
-  MongoDB: "#47A248",
-  PostgreSQL: "#336791",
-  AWS: "#FF9900",
-  Docker: "#2496ED",
-  Nestjs: "#E0234E",
-};
 
 interface SkillsSectionProps {
   skillCategories: SkillCategory[];

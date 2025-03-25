@@ -1,5 +1,3 @@
-"use client";
-
 import type React from "react";
 
 import { useCallback, useState } from "react";
@@ -12,16 +10,19 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { sendEmail } from "@/lib/api";
+import { saveEmailData } from "@/lib/services/email";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { db } from "@/lib/firebase/config";
 
 export function ContactForm() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState(false);
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
+  const [email, setEmail] = useState("breno.galendi@oneblinc.com");
+  const [name, setName] = useState("Breno");
+  const [subject, setSubject] = useState("Teste");
+  const [message, setMessage] = useState("teste");
 
   const handleSubmit = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
@@ -30,6 +31,12 @@ export function ContactForm() {
 
       try {
         // Send email
+        await saveEmailData({
+          email,
+          subject,
+          name,
+          message,
+        });
         await sendEmail({ email, name, subject, message });
 
         // Show success toast
@@ -50,13 +57,13 @@ export function ContactForm() {
         setIsSubmitting(false);
 
         // Reset form after showing success message
-        // setTimeout(() => {
-        //   setIsSubmitted(false);
-        //   e.currentTarget.reset();
-        // }, 3000);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          e.currentTarget.reset();
+        }, 3000);
       }
     },
-    [email, name, subject, message, toast]
+    [email, name, subject, message, toast, saveEmailData]
   );
 
   return (

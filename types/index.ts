@@ -13,9 +13,11 @@ export interface Profile {
 }
 
 export interface Skill {
+  id: string;
   name: string;
   level: number;
   icon: string;
+  tag: "frontend" | "backend" | "devops";
 }
 
 export interface SkillCategory {
@@ -56,6 +58,7 @@ export interface Testimonial {
 }
 
 export interface Stat {
+  id: string;
   value: string;
   label: string;
 }
