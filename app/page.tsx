@@ -18,6 +18,9 @@ export default async function Home() {
     getExperiences(),
     getStats(),
   ]);
+  if (!profile || !skillCategories || !experiences || !stats) {
+    return <div>Loading</div>;
+  }
 
   return (
     <main className="min-h-screen bg-background">

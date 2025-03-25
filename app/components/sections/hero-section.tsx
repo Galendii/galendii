@@ -9,7 +9,6 @@ import { Button } from "@/components/ui/button";
 import { ParticlesBackground } from "../particles-background";
 import { TechIcons } from "../tech-icons";
 import type { Profile } from "@/types";
-import { getProfile } from "@/lib/api";
 
 interface HeroSectionProps {
   profile: Profile;
