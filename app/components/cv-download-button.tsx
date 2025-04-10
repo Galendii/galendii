@@ -82,8 +82,9 @@ export const CvExportButton: React.FC<CvExportButtonProps> = ({
     <>
       <DropdownMenu>
         <DropdownMenuTrigger    asChild>
-          <Button variant="default" size="lg">
-             <FileDown className="mr-2 h-4 w-4" /> Export CV
+          <Button variant="outline"
+            className="border-primary/20 hover:border-primary/50">
+             <FileDown className="h-4 w-4" /> Export CV
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
