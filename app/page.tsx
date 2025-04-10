@@ -28,7 +28,7 @@ export default async function Home() {
         <ThemeToggle />
       </div>
 
-      <HeroSection profile={profile} />
+      <HeroSection profile={profile} experiences={experiences} skillCategories={skillCategories} stats={stats} />
       <StatsSection stats={stats} />
       <SkillsSection skillCategories={skillCategories} />
       {/* <ProjectsSection projects={projects} /> */}

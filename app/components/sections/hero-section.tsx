@@ -8,13 +8,17 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ParticlesBackground } from "../particles-background";
 import { TechIcons } from "../tech-icons";
-import type { Profile } from "@/types";
+import { CvExportButton } from "../cv-download-button";
+import type { Profile, Experience, SkillCategory, Stat } from "@/types";
 
 interface HeroSectionProps {
   profile: Profile;
+  experiences?: Experience[];
+  skillCategories?: SkillCategory[];
+  stats?: Stat[];
 }
 
-export function HeroSection({ profile }: HeroSectionProps) {
+export function HeroSection({ profile, experiences, skillCategories, stats }: HeroSectionProps) {
   return (
     <section className="relative flex flex-col items-center justify-center px-4 py-32 overflow-hidden md:px-8 md:py-40">
       <ParticlesBackground />
@@ -74,6 +78,13 @@ export function HeroSection({ profile }: HeroSectionProps) {
           >
             <Link href="#experience">My journey</Link>
           </Button>
+          {experiences && skillCategories && stats && (
+            <CvExportButton 
+              profile={profile} 
+              experiences={experiences} 
+              skillCategories={skillCategories} 
+            />
+          )}
         </motion.div>
 
         <motion.div
